@@ -13,9 +13,9 @@ import {
   fetchModels,
 } from "../src/index.ts";
 
-const API_KEY = process.env.FRIENDLIAI_API_KEY;
+const API_KEY = process.env.FRIENDLI_TOKEN;
 if (API_KEY === undefined || API_KEY.length === 0) {
-  throw new Error("FRIENDLIAI_API_KEY is required for the live test suite");
+  throw new Error("FRIENDLI_TOKEN is required for the live test suite");
 }
 
 const K_EXAONE = "LGAI-EXAONE/K-EXAONE-236B-A23B";

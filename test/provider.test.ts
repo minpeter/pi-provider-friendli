@@ -92,7 +92,7 @@ describe("friendliProvider registration", () => {
 
     // Then auth comes from the environment via an Authorization header
     const config = calls[0]?.config;
-    expect(config?.apiKey).toBe("$FRIENDLIAI_API_KEY");
+    expect(config?.apiKey).toBe("$FRIENDLI_TOKEN");
     expect(config?.api).toBe("openai-completions");
     expect(config?.authHeader).toBeTruthy();
     expect(config?.refreshModels).toBeTypeOf("function");

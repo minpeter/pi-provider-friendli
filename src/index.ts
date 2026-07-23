@@ -7,7 +7,7 @@ import { refreshModels } from "./models.ts";
 const friendliProvider = (pi: ExtensionAPI): void => {
   pi.registerProvider("friendliai", {
     api: "openai-completions",
-    apiKey: "$FRIENDLIAI_API_KEY",
+    apiKey: "$FRIENDLI_TOKEN",
     authHeader: true,
     baseUrl: FRIENDLIAI_BASE_URL,
     models: FALLBACK_MODELS,

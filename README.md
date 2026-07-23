@@ -7,7 +7,7 @@ Ships with the full FriendliAI serverless catalog and refreshes it against the l
 ## Features
 
 - **Works out of the box** — all current serverless models are bundled as a fallback catalog
-- **Live model discovery** — resolves `FRIENDLIAI_API_KEY`, fetches the catalog, and caches it; Pi falls back to the bundled catalog when the endpoint is unreachable
+- **Live model discovery** — resolves `FRIENDLI_TOKEN`, fetches the catalog, and caches it; Pi falls back to the bundled catalog when the endpoint is unreachable
 - **Accurate metadata** — context/output limits from the live endpoint and per-million pricing converted from FriendliAI's per-token rates (cached-token pricing included where offered)
 - **Verified transport flags** — every compat flag was probed against the live endpoint: `max_completion_tokens`, streaming usage, no `developer` role (rejected with HTTP 422)
 - **Thinking control** — controllable reasoning models toggle thinking through FriendliAI's `chat_template_kwargs.enable_thinking`
@@ -37,7 +37,7 @@ This package ships as a Pi extension, no other configuration needed.
 ## Authentication
 
 ```bash
-export FRIENDLIAI_API_KEY=your_api_key_here
+export FRIENDLI_TOKEN=your_api_key_here
 ```
 
 You can get an API key from [FriendliAI](https://friendli.ai). When no key is available, the provider still works through Pi's normal key resolution and serves the bundled fallback catalog.
@@ -60,7 +60,7 @@ Linting and formatting use [Ultracite](https://www.ultracite.ai)'s Oxlint + Oxfm
 Live tests hit the real API and are excluded from `pnpm check`:
 
 ```bash
-FRIENDLIAI_API_KEY=... pnpm test:live
+FRIENDLI_TOKEN=... pnpm test:live
 ```
 
 Changelog entries live in `.tegami/*.md` (see the [Tegami changelog format](https://tegami.fuma-nama.dev/changelog)); the release workflow versions and publishes via `pnpm tegami ci`.
