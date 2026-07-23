@@ -1,5 +1,6 @@
 core:changelogs:
-  - content: "---\npackages:\n  pi-provider-friendli:\n    type: patch\n---\n\n## Read API key from FRIENDLI_TOKEN and rename provider to friendli\n\n- The provider now reads the API key from `FRIENDLI_TOKEN` instead of `FRIENDLIAI_API_KEY`.\n- The provider id is now `friendli` (was `friendliai`); select models as `friendli/<model-id>`.\n- README reduced to the essentials: name, install, features.\n"
+  - content:
+      "---\npackages:\n  pi-provider-friendli:\n    type: patch\n---\n\n## Read API key from FRIENDLI_TOKEN and rename provider to friendli\n\n- The provider now reads the API key from `FRIENDLI_TOKEN` instead of `FRIENDLIAI_API_KEY`.\n- The provider id is now `friendli` (was `friendliai`); select models as `friendli/<model-id>`.\n- README reduced to the essentials: name, install, features.\n"
     filename: friendli-provider.md
     v: 0.0.0
 core:packages:
