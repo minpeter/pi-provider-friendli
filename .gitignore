@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.log
+
+# Local secrets — never commit API keys
+.env
+.env.*
+!.env.example
+
+# Agent / scratch dirs
+.omo/
+.senpi/
+.omx/

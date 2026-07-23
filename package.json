@@ -1,0 +1,70 @@
+{
+  "name": "pi-provider-friendli",
+  "version": "0.0.0",
+  "description": "FriendliAI model provider for Pi with live model discovery",
+  "keywords": [
+    "ai-provider",
+    "friendli",
+    "friendliai",
+    "pi-extension",
+    "pi-package"
+  ],
+  "homepage": "https://github.com/minpeter/pi-provider-friendli#readme",
+  "bugs": {
+    "url": "https://github.com/minpeter/pi-provider-friendli/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minpeter/pi-provider-friendli.git"
+  },
+  "files": [
+    "src",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "lint": "oxlint",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:live": "vitest run --config vitest.live.config.ts",
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test",
+    "tegami": "node scripts/tegami.mts"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "0.81.1",
+    "@earendil-works/pi-coding-agent": "^0.81.1",
+    "@types/node": "^26.1.1",
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0",
+    "tegami": "^1.2.6",
+    "typescript": "^7.0.2",
+    "ultracite": "^7.9.4",
+    "vitest": "^4.1.10"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  }
+}
