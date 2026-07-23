@@ -12,6 +12,20 @@ const friendliProvider = (pi: ExtensionAPI): void => {
     baseUrl: FRIENDLIAI_BASE_URL,
     models: FALLBACK_MODELS,
     name: "FriendliAI",
+    oauth: {
+      getApiKey(credentials) {
+        return credentials.access;
+      },
+      async login(callbacks) {
+        const key = await callbacks.onPrompt({
+          message: "Enter your FriendliAI API key",
+          placeholder: "flp_...",
+        });
+        return { access: key, expires: Number.MAX_SAFE_INTEGER, refresh: "" };
+      },
+      name: "FriendliAI",
+      refreshToken: (credentials) => Promise.resolve(credentials),
+    },
     refreshModels,
   });
 };
