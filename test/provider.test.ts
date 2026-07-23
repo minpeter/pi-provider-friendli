@@ -123,10 +123,13 @@ describe("friendliProvider registration", () => {
     // When the user logs in and enters their key
     const prompts: string[] = [];
     const credentials = await oauth?.login({
+      onAuth: () => {},
+      onDeviceCode: () => {},
       onPrompt: (prompt) => {
         prompts.push(prompt.message);
         return Promise.resolve("flp_test_key_123");
       },
+      onSelect: () => Promise.resolve(undefined),
     });
 
     // Then the key is stored as an OAuth credential
