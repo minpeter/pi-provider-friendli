@@ -129,7 +129,7 @@ describe("friendliProvider registration", () => {
         prompts.push(prompt.message);
         return Promise.resolve("flp_test_key_123");
       },
-      onSelect: () => Promise.resolve(undefined),
+      onSelect: () => Promise.resolve(),
     });
 
     // Then the key is stored as an OAuth credential
