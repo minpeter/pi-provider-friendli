@@ -97,6 +97,59 @@ describe("friendliProvider registration", () => {
     expect(config?.authHeader).toBeTruthy();
     expect(config?.refreshModels).toBeTypeOf("function");
   });
+
+  it("registers an OAuth login flow for /login support", () => {
+    // Given a Pi extension API
+    const { calls, pi } = captureRegistration();
+
+    // When the extension initializes
+    friendliProvider(pi);
+
+    // Then the provider supports /login with an API key prompt
+    const oauth = calls[0]?.config.oauth;
+    expect(oauth).toBeDefined();
+    expect(oauth?.name).toBe("FriendliAI");
+    expect(oauth?.login).toBeTypeOf("function");
+    expect(oauth?.refreshToken).toBeTypeOf("function");
+    expect(oauth?.getApiKey).toBeTypeOf("function");
+  });
+
+  it("prompts for an API key during /login", async () => {
+    // Given a Pi extension API
+    const { calls, pi } = captureRegistration();
+    friendliProvider(pi);
+    const oauth = calls[0]?.config.oauth;
+
+    // When the user logs in and enters their key
+    const prompts: string[] = [];
+    const credentials = await oauth?.login({
+      onPrompt: (prompt) => {
+        prompts.push(prompt.message);
+        return Promise.resolve("flp_test_key_123");
+      },
+    });
+
+    // Then the key is stored as an OAuth credential
+    expect(prompts).toHaveLength(1);
+    expect(credentials?.access).toBe("flp_test_key_123");
+    expect(
+      oauth?.getApiKey({ access: "flp_test_key_123", expires: 0, refresh: "" })
+    ).toBe("flp_test_key_123");
+  });
+
+  it("returns the same credentials on refresh (API keys don't expire)", async () => {
+    // Given a Pi extension API
+    const { calls, pi } = captureRegistration();
+    friendliProvider(pi);
+    const oauth = calls[0]?.config.oauth;
+    const stored = { access: "flp_key", expires: 0, refresh: "" };
+
+    // When the credential is refreshed
+    const refreshed = await oauth?.refreshToken(stored);
+
+    // Then the same key is returned unchanged
+    expect(refreshed?.access).toBe("flp_key");
+  });
 });
 
 describe("fallback catalog", () => {
