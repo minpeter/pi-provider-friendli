@@ -5,7 +5,7 @@ import { refreshModels } from "./models.ts";
 
 // Pi discovers extensions through their default export.
 const friendliProvider = (pi: ExtensionAPI): void => {
-  pi.registerProvider("friendliai", {
+  pi.registerProvider("friendli", {
     api: "openai-completions",
     apiKey: "$FRIENDLI_TOKEN",
     authHeader: true,
