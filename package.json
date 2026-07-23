@@ -1,6 +1,6 @@
 {
   "name": "pi-provider-friendli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "FriendliAI model provider for Pi with live model discovery",
   "keywords": [
     "ai-provider",

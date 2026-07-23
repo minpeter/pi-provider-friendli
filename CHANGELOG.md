@@ -1,3 +1,12 @@
+## pi-provider-friendli@0.0.2
+
+### Add /login support for FriendliAI API key
+
+Users can now run `/login` in pi's TUI to enter their FriendliAI API key
+interactively when `FRIENDLI_TOKEN` is not set. The key is persisted in
+pi's auth store. The `FRIENDLI_TOKEN` environment variable continues to
+work as before.
+
 ## pi-provider-friendli@0.0.1
 
 ### Read API key from FRIENDLI_TOKEN and rename provider to friendli

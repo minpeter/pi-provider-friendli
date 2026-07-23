@@ -1,11 +1,10 @@
 core:changelogs:
-  - content:
-      "---\npackages:\n  pi-provider-friendli:\n    type: patch\n---\n\n## Read API key from FRIENDLI_TOKEN and rename provider to friendli\n\n- The provider now reads the API key from `FRIENDLI_TOKEN` instead of `FRIENDLIAI_API_KEY`.\n- The provider id is now `friendli` (was `friendliai`); select models as `friendli/<model-id>`.\n- README reduced to the essentials: name, install, features.\n"
-    filename: friendli-provider.md
+  - content: "---\npackages:\n  pi-provider-friendli:\n    type: patch\n---\n\n## Add /login support for FriendliAI API key\n\nUsers can now run `/login` in pi's TUI to enter their FriendliAI API key\ninteractively when `FRIENDLI_TOKEN` is not set. The key is persisted in\npi's auth store. The `FRIENDLI_TOKEN` environment variable continues to\nwork as before.\n"
+    filename: oauth-login.md
     v: 0.0.0
 core:packages:
   - changelogIds:
-      - friendli-provider.md
+      - oauth-login.md
     id: npm:pi-provider-friendli
     updated: true
 npm:packages:
