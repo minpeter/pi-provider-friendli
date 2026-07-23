@@ -31,7 +31,7 @@ const friendliModel = (id: string): OpenAIModel => {
     ...fallback,
     api: "openai-completions",
     baseUrl: FRIENDLIAI_BASE_URL,
-    provider: "friendliai",
+    provider: "friendli",
   };
 };
 

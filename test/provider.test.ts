@@ -77,7 +77,7 @@ describe("friendliProvider registration", () => {
     // Then it registers FriendliAI's serverless endpoint
     expect(calls).toHaveLength(1);
     const [registration] = calls;
-    expect(registration?.name).toBe("friendliai");
+    expect(registration?.name).toBe("friendli");
     expect(registration?.config.name).toBe("FriendliAI");
     expect(registration?.config.baseUrl).toBe(FRIENDLIAI_BASE_URL);
     expect(FRIENDLIAI_BASE_URL).toBe("https://api.friendli.ai/serverless/v1");
