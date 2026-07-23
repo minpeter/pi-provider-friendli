@@ -6,5 +6,6 @@ export default defineConfig({
   ignorePatterns: [
     ...(ultracite.ignorePatterns ?? []),
     ".tegami/publish-lock.yaml",
+    "CHANGELOG.md",
   ],
 });
